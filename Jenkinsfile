@@ -11,7 +11,7 @@ pipeline {
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
             }
         }
-        stage("Test"){
+        stage('Test'){
             agent {
                 docker {
                     image 'qnib/pytest'
@@ -27,7 +27,7 @@ pipeline {
                 }
             } 
         }
-        stage("Delivery") {
+        stage('Delivery') {
             agent {
                 docker {
                     image 'cdrx/pyinstaller-linux:python3'
@@ -42,15 +42,15 @@ pipeline {
                 }
             }
         }
-        stage("打包成docker镜像发送dockerhub") {
+        stage('打包成docker镜像发送dockerhub') {
             steps{
-                echo "打包成docker镜像发送dockerhub"
+                echo '打包成docker镜像发送dockerhub'
             }
         }
 
-        stage("Deploy Project") {
+        stage('DeployProject') {
             steps{
-                echo "Deploy Project"
+                echo 'Deploy Project'
             }
         }
        
