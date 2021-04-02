@@ -18,3 +18,7 @@ https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/6.9/
 https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 
 b685a4a2b7ef4400830cd3fa8f2623f1
+
+1.构建>测试
+2.打包镜像上传到容器仓库
+3.发送指令,(通过docker拉取服务)部署测试环境服务器
