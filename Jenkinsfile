@@ -42,7 +42,7 @@ pipeline {
     //             }
     //         }
     //     }
-       stage('Build') {
+       stage('Build镜像') {
            steps{
                  sh 'docker build -t colinsarah/jenkins_test01'
            }
