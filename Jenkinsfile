@@ -27,21 +27,21 @@ pipeline {
                 }
             } 
         }
-       stage('Deliver') { 
-            agent {
-                docker {
-                    image 'cdrx/pyinstaller-linux:python2' 
-                }
-            }
-            steps {
-                sh 'pyinstaller --onefile sources/add2vals.py' 
-            }
-            post {
-                success {
-                    archiveArtifacts 'dist/add2vals' 
-                }
-            }
-        }
+    //    stage('Deliver') { 
+    //         agent {
+    //             docker {
+    //                 image 'cdrx/pyinstaller-linux:python2' 
+    //             }
+    //         }
+    //         steps {
+    //             sh 'pyinstaller --onefile sources/add2vals.py' 
+    //         }
+    //         post {
+    //             success {
+    //                 archiveArtifacts 'dist/add2vals' 
+    //             }
+    //         }
+    //     }
         stage('打包成docker镜像发送dockerhub') {
             steps{
                 echo '打包成docker镜像发送dockerhub'
