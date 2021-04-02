@@ -44,7 +44,7 @@ pipeline {
     //     }
        stage('Build镜像') {
            steps{
-                 sh 'docker build -t colinsarah/jenkins_test01'
+                 sh 'docker build -t colinsarah/jenkins_test01 .'
            }
        }
         stage('打包成docker镜像发送dockerhub') {
