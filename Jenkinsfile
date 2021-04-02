@@ -23,9 +23,10 @@ pipeline {
             post {
                 always {
                     junit 'test-reports/results.xml'
+                    echo "test success!!!"
                 }
-            echo "test success!!!"
-        } 
+            
+            } 
         }
        
     }
