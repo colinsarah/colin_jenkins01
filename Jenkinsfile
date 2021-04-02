@@ -60,6 +60,15 @@ pipeline {
         //     }
             
         // }
+        stage('上传镜像'){
+            agent any
+            steps{
+               withCredentials([usernamePassword(credentialsId: 'a27bf184-51f2-4dfb-86bd-906916c11158', passwordVariable: 'password', usernameVariable: 'username')]) {
+                    echo '打包成docker镜像发送dockerhub'
+                    sh 'docker login -u ${username} -p${password}&&docker push colinsarah/jenkins_test01'
+                }
+            }
+        }
 
         stage('DeployProject') {
             steps{
