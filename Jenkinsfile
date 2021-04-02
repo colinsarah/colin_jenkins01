@@ -35,7 +35,7 @@ pipeline {
         }
 
         stage("Deploy Project") {
-            agent nonde
+            agent none
             steps{
                 echo "Deploy Project"
             }
