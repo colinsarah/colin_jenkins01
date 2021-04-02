@@ -44,7 +44,7 @@ pipeline {
     //     }
        stage('Build镜像') {
            agent any
-           steps{
+           steps {
                  sh 'docker build -t colinsarah/jenkins_test01 .'
            }
        }
@@ -60,9 +60,9 @@ pipeline {
         //     }
             
         // }
-        stage('上传镜像'){
+        stage('上传镜像') {
             agent any
-            steps{
+            steps {
                withCredentials([usernamePassword(credentialsId: 'a27bf184-51f2-4dfb-86bd-906916c11158', passwordVariable: 'password', usernameVariable: 'username')]) {
                     echo '打包成docker镜像发送dockerhub'
                     sh 'docker login -u ${username} -p${password}&&docker push colinsarah/jenkins_test01'
@@ -71,11 +71,10 @@ pipeline {
         }
 
         stage('DeployProject') {
-            steps{
-                echo 'Deploy Project'
+            steps {
+                echo '通过ssh通知生成服务器去拉代码'
             }
-        }
-       
+        }       
     }
 }
 
