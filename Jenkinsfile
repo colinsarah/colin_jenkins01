@@ -42,10 +42,20 @@ pipeline {
     //             }
     //         }
     //     }
+       stage('Build') {
+           steps{
+                 sh 'docker build -t colinsarah/jenkins_test01'
+           }
+       }
         stage('打包成docker镜像发送dockerhub') {
+            withCredentials([usernamePassword(credentialsId: 'a27bf184-51f2-4dfb-86bd-906916c11158', passwordVariable: 'password', usernameVariable: 'username')]) {
+    // some block
+    }
             steps{
                 echo '打包成docker镜像发送dockerhub'
+                sh 'docker login -u ${username} -p${password}&&docker push colinsarah/jenkins_test01'
             }
+            
         }
 
         stage('DeployProject') {
