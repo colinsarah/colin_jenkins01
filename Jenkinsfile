@@ -85,5 +85,5 @@ pipeline {
     }
 }
 
-emailext body: '${FILE,path="email.html"}', recipientProviders: [developers()], subject: '\'构建通知：${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!\'', to: 'colinsarah@sina.cn'
+// emailext body: '${FILE,path="email.html"}', recipientProviders: [developers()], subject: '\'构建通知：${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!\'', to: 'colinsarah@sina.cn'
 
