@@ -25,8 +25,20 @@ pipeline {
                     junit 'test-reports/results.xml'
                     echo "test success!!!"
                 }
-            
             } 
+        }
+        stage("打包成docker镜像发送dockerhub") {
+            agent none
+            steps{
+                echo "打包成docker镜像发送dockerhub"
+            }
+        }
+
+        stage("Deploy Project") {
+            agent nonde
+            steps{
+                echo "Deploy Project"
+            }
         }
        
     }
