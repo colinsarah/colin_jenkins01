@@ -43,6 +43,7 @@ pipeline {
     //         }
     //     }
        stage('Build镜像') {
+           agent any
            steps{
                  sh 'docker build -t colinsarah/jenkins_test01 .'
            }
